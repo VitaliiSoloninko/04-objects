@@ -93,3 +93,32 @@ const person = {
 // })
 
 // Контекст Context this
+
+const logger = {
+	keys(withText = true) {
+		if (withText) {
+			console.log('Object keys:', Object.keys(this))
+		} else {
+			console.log(Object.keys(this))
+		}
+	},
+
+	keysAndValues() {
+		Object.keys(this).forEach(key => {
+			console.log('Key:', key)
+			console.log('Value:', this[key])
+		})
+	},
+}
+
+// const bound = logger.keys.bind(person)
+// bound(false)
+// попередні 2 рядки з іншим записом
+// logger.keys.bind(person)()
+
+// 2-3 метод, зразу викливає функцію
+// Робля те саме, то яка різниця питання на собесі
+// logger.keys.call(person, false)
+// // всі параметри тут наприклад це false, false треба передавати через кому
+// logger.keys.apply(person, [false])
+// // функція прикмає 2 параметри і 2 параметр завжди масив
