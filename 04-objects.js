@@ -122,3 +122,34 @@ const logger = {
 // // всі параметри тут наприклад це false, false треба передавати через кому
 // logger.keys.apply(person, [false])
 // // функція прикмає 2 параметри і 2 параметр завжди масив
+
+class Human {
+	isHuman = true
+	humanGreet() {
+		console.log('greet from human')
+	}
+}
+class Person extends Human {
+	constructor(name, age) {
+		super()
+		this.name = name ?? 'Undefined name'
+		this.age = age ?? 'Undefined age'
+	}
+	sayHello() {
+		console.log('Hello from', this.name)
+	}
+	myAge() {
+		console.log('My age is', this.age)
+	}
+}
+
+const person1 = new Person('Vitalii', 36)
+const person2 = new Person('Dilya', 35)
+
+person1.sayHello()
+person1.myAge()
+
+person2.sayHello()
+person2.myAge()
+
+console.log(person1.humanGreet())
